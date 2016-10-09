@@ -1,0 +1,6 @@
+node_modules
+.drone.sec
+.drone.yml
+secrets.yml
+.git
+docker/*

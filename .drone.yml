@@ -1,0 +1,47 @@
+cache:
+  mount:
+    - node_modules
+    - .git
+    - public/lib
+    - docker/image.tar
+
+build:
+  image: mhart/alpine-node:0.10
+  commands:
+    - apk update
+    - apk add python make g++
+    - rm -r /var/cache/apk
+    - npm install
+    - node_modules/.bin/gulp test
+    - node_modules/.bin/gulp build
+    - node_modules/.bin/gulp test:api &
+    - sleep 10s
+    - node_modules/.bin/abao api/raml/api.raml --server http://localhost:3021 --hookfiles=api/raml/hooks/*.js
+
+notify:
+  gitter:
+    webhook: https://webhooks.gitter.im/e/$${GITTER_ID}
+
+publish:
+  docker:
+    username: bsimpson53
+    email: $$DOCKER_EMAIL
+    password: $$DOCKER_PASSWORD
+    repo: newcrossfoodcoop/nxfc_ghost
+    tag: latest
+    when:
+      branch: master
+    load: docker/image.tar
+    save:
+      destination: docker/image.tar
+      tag: latest
+      
+  docker:
+    username: bsimpson53
+    email: $$DOCKER_EMAIL
+    password: $$DOCKER_PASSWORD
+    repo: newcrossfoodcoop/nxfc_ghost
+    tag: $$TAG
+    when:
+      event: tag
+    load: docker/image.tar

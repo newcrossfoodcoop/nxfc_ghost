@@ -1,0 +1,7 @@
+version: '2'
+services:
+  ghost_api:
+    build: .
+    ports:
+      - "3021:3021"
+    command: gulp test:api

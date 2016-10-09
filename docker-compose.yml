@@ -1,0 +1,8 @@
+version: '2'
+services:
+  ghost_api:
+    build: .
+    ports:
+      - "3020:3020"
+      - "2368:2368"
+    command: gulp api

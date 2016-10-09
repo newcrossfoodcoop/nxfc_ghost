@@ -1,0 +1,267 @@
+<!DOCTYPE HTML><html><head><title>NXFC Ghost API documentation</title><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta http-equiv="Content-Type" content="text/html; charset=utf-8"><meta name="generator" content="https://github.com/kevinrenskers/raml2html 1.6.0"><link rel="stylesheet" href="http://netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css"><link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/highlight.js/8.1/styles/default.min.css"><script type="text/javascript" src="http://code.jquery.com/jquery-1.11.0.min.js"></script><script type="text/javascript" src="http://netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script><script type="text/javascript" src="http://cdnjs.cloudflare.com/ajax/libs/highlight.js/8.1/highlight.min.js"></script><script type="text/javascript">
+        $(document).ready(function() {
+            $('.page-header pre code, .top-resource-description pre code').each(function(i, block) {
+                hljs.highlightBlock(block);
+            });
+
+            $('[data-toggle]').click(function() {
+                var selector = $(this).data('target') + ' pre code';
+                $(selector).each(function(i, block) {
+                    hljs.highlightBlock(block);
+                });
+            });
+            
+            
+            // open modal on hashes like #_action_get
+            $(window).bind('hashchange', function(e) {
+                var anchor_id = document.location.hash.substr(1); //strip #
+                var element = $('#' + anchor_id);
+
+                // do we have such element + is it a modal?  --> show it
+                if (element.length && element.hasClass('modal')) {
+                    element.modal('show');
+                }
+            });
+
+            // execute hashchange on first page load
+            $(window).trigger('hashchange');
+            
+            // remove url fragment on modal hide
+            $('.modal').on('hidden.bs.modal', function() {
+                if(history && history.replaceState) { 
+                    history.replaceState({}, '', '#');
+                }
+            });
+        });
+    </script><style>
+        .hljs {
+            background: transparent;
+        }
+        .parent {
+            color: #999;
+        }
+        .list-group-item > .badge {
+            float: none;
+            margin-right: 6px;
+        }
+        .panel-title > .methods {
+            float: right;
+        }
+        .badge {
+            border-radius: 0;
+            text-transform: uppercase;
+            width: 70px;
+            font-weight: normal;
+            color: #f3f3f6;
+            line-height: normal;
+        }
+        .badge_get {
+            background-color: #63a8e2;
+        }
+        .badge_post {
+            background-color: #6cbd7d;
+        }
+        .badge_put {
+            background-color: #22bac4;
+        }
+        .badge_delete {
+            background-color: #d26460;
+        }
+        .badge_patch {
+            background-color: #ccc444;
+        }
+        .list-group, .panel-group {
+            margin-bottom: 0;
+        }
+        .panel-group .panel+.panel-white {
+            margin-top: 0;
+        }
+        .panel-group .panel-white {
+            border-bottom: 1px solid #F5F5F5;
+            border-radius: 0;
+        }
+        .panel-white:last-child {
+            border-bottom-color: white;
+            -webkit-box-shadow: none;
+            box-shadow: none;
+        }
+        .panel-white .panel-heading {
+            background: white;
+        }
+        .tab-pane ul {
+            padding-left: 2em;
+        }
+        .tab-pane h2 {
+            font-size: 1.2em;
+            padding-bottom: 4px;
+            border-bottom: 1px solid #ddd;
+        }
+        .tab-pane h3 {
+            font-size: 1.1em;
+        }
+        .tab-content {
+            border-left: 1px solid #ddd;
+            border-right: 1px solid #ddd;
+            border-bottom: 1px solid #ddd;
+            padding: 10px;
+        }
+        #sidebar {
+            margin-top: 30px;
+            padding-right: 5px;
+            overflow: auto;
+            height: 90%;
+        }
+        .top-resource-description {
+            border-bottom: 1px solid #ddd;
+            background: #fcfcfc;
+            padding: 15px 15px 0 15px;
+            margin: -15px -15px 10px -15px;
+        }
+        .resource-description {
+            border-bottom: 1px solid #fcfcfc;
+            background: #fcfcfc;
+            padding: 15px 15px 0 15px;
+            margin: -15px -15px 10px -15px;
+        }
+        .resource-description p:last-child {
+            margin: 0;
+        }
+        .list-group .badge {
+            float: left;
+        }
+        .method_description {
+            margin-left: 85px;
+        }
+        .method_description p:last-child {
+            margin: 0;
+        }
+        .list-group-item {
+            cursor: pointer;
+        }
+        .list-group-item:hover {
+            background-color: #f5f5f5;
+        }
+    </style></head><body data-spy="scroll" data-target="#sidebar"><div class="container"><div class="row"><div class="col-md-9" role="main"><div class="page-header"><h1>NXFC Ghost API documentation</h1><p>http://localhost:3020</p></div><div class="panel panel-default"><div class="panel-heading"><h3 id="_api_ghost" class="panel-title">/api/ghost</h3></div><div class="panel-body"><div class="panel-group"><div class="panel panel-white"><div class="panel-heading"><h4 class="panel-title"><a class="collapsed" data-toggle="collapse" href="#panel__api_ghost_login"><span class="parent">/api/ghost</span>/login</a> <span class="methods"><a href="#_api_ghost_login_post"><span class="badge badge_post">post</span></a></span></h4></div><div id="panel__api_ghost_login" class="panel-collapse collapse"><div class="panel-body"><div class="list-group"><div onclick="window.location.href = '#_api_ghost_login_post'" class="list-group-item"><span class="badge badge_post">post</span><div class="method_description"><p>Generate ghost login credentials for a user</p></div><div class="clearfix"></div></div></div></div></div><div class="modal fade" tabindex="0" id="_api_ghost_login_post"><div class="modal-dialog"><div class="modal-content"><div class="modal-header"><button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button><h4 class="modal-title" id="myModalLabel"><span class="badge badge_post">post</span> <span class="parent">/api/ghost</span>/login</h4></div><div class="modal-body"><div class="alert alert-info"><p>Generate ghost login credentials for a user</p></div><ul class="nav nav-tabs"><li class="active"><a href="#_api_ghost_login_post_request" data-toggle="tab">Request</a></li><li><a href="#_api_ghost_login_post_response" data-toggle="tab">Response</a></li></ul><div class="tab-content"><div class="tab-pane active" id="_api_ghost_login_post_request"><h3>Body</h3><p><strong>Type: application/json</strong></p><p><strong>Schema</strong>:</p><pre><code>{
+  "$schema": "http://json-schema.org/draft-03/schema#",
+  "type": "object",
+  "properties": {
+    "firstName": "string",
+    "lastName": "string",
+    "displayName": "string",
+    "email": "string",
+    "roles": "array",
+    "id": "string"
+  }
+}
+</code></pre><p><strong>Example</strong>:</p><pre><code>{
+  "firstName": "Ghost",
+  "lastName": "User",
+  "displayName": "Ghost User",
+  "email": "test@test.com",
+  "roles": ["ghost-admin"],
+  "id": "57c4b1ba1abb0114001963c5"
+}
+</code></pre></div><div class="tab-pane" id="_api_ghost_login_post_response"><h2>HTTP status code <a href="http://httpstatus.es/200" target="_blank">200</a></h2><h3>Body</h3><p><strong>Type: application/json</strong></p><p><strong>Schema</strong>:</p><pre><code>{
+  "$schema": "http://json-schema.org/draft-03/schema#",
+  "type": "object",
+  "properties": {
+    "access_token": {
+      "type": "string",
+      "required": "true"
+    },
+    "refresh_token": {
+      "type": "string",
+      "required": "true"
+    },
+    "token_type": {
+      "type": "string",
+      "required": "true",
+      "enum": ["Bearer"]
+    },
+    "expires_in": {
+      "type": "number",
+      "required": "true"
+    }
+  }
+}
+</code></pre><p><strong>Example</strong>:</p><pre><code>{ 
+  "access_token": &#x27;gPqM08KqYeKiocUokQ5AUaPpbpB6LcM9AB1bVom77pxrZqW09ilA2uJWLhPeep1ENYsCve4Gb71E7NMrHKPZbYJdXtmlnb1shMw08LOjojeb9mvDvwM792sC0hTbc5EBVMIjSs4NyCpmKCUDBDI1TvnzH9FMZjSQZ21surD5pMSY0oMeZCvEiUfNQdnVKjPgnEvkfbthmAvLe34YHhKsz8Qhe8Y2lcQJadss3H53fAuQQjib7oYFNDQ99fKWIyM&#x27;,
+  "refresh_token": &#x27;oJl97aWz9DtzzuT2IQ95ZJ9WllC9uDjG5XVKP6UKObbNSYiOR5w50Rkb10ZYzAjYITNzgfWCU5aqJoQcd6j9gkDP7IEf4wIx1ekrt36oCMRUzeIxue30SfcnL1NukiIGeis3n6Yt9LOKS5JcLeDy7DwNQXOfcXhHCFtgPYSQTqJPtlOuqjy54XBc57GU4Y7KBrnioMHiAbG3qiqzQTOWTodyHXqgRXiq6elWJ5AwHgfZEeAKGEb1INLeEaz74TX&#x27;,
+  "expires_in": 3600,
+  "token_type": "Bearer" 
+}
+</code></pre></div></div></div></div></div></div></div><div class="panel panel-white"><div class="panel-heading"><h4 class="panel-title"><a class="collapsed" data-toggle="collapse" href="#panel__api_ghost_posts_slug__slug_"><span class="parent">/api/ghost/posts</span>/slug/{slug}</a> <span class="methods"><a href="#_api_ghost_posts_slug__slug__get"><span class="badge badge_get">get</span></a></span></h4></div><div id="panel__api_ghost_posts_slug__slug_" class="panel-collapse collapse"><div class="panel-body"><div class="list-group"><div onclick="window.location.href = '#_api_ghost_posts_slug__slug__get'" class="list-group-item"><span class="badge badge_get">get</span><div class="method_description"><p>Get a post by its slug or Id</p></div><div class="clearfix"></div></div></div></div></div><div class="modal fade" tabindex="0" id="_api_ghost_posts_slug__slug__get"><div class="modal-dialog"><div class="modal-content"><div class="modal-header"><button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button><h4 class="modal-title" id="myModalLabel"><span class="badge badge_get">get</span> <span class="parent">/api/ghost/posts</span>/slug/{slug}</h4></div><div class="modal-body"><div class="alert alert-info"><p>Get a post by its slug or Id</p></div><ul class="nav nav-tabs"><li class="active"><a href="#_api_ghost_posts_slug__slug__get_request" data-toggle="tab">Request</a></li><li><a href="#_api_ghost_posts_slug__slug__get_response" data-toggle="tab">Response</a></li></ul><div class="tab-content"><div class="tab-pane active" id="_api_ghost_posts_slug__slug__get_request"><h3>URI Parameters</h3><ul><li><strong>slug</strong>: <em>required (string )</em></li></ul></div><div class="tab-pane" id="_api_ghost_posts_slug__slug__get_response"><h2>HTTP status code <a href="http://httpstatus.es/200" target="_blank">200</a></h2><h3>Body</h3><p><strong>Type: application/json</strong></p><p><strong>Schema</strong>:</p><pre><code>{
+    "$schema": "http://json-schema.org/draft-03/schema#",
+    "type": "object",
+    "description": "Ghost Post",
+    "properties": {
+      "status": {
+        "type": "string",
+        "enum": ["published"]
+      },
+      "id": "number",
+      "uuid": "string",
+      "title": "string",
+      "slug": "string",
+      "markdown": "string",
+      "html": "string",
+      "image": "string",
+      "featured": "boolean",
+      "page": "boolean",
+      "language": "string",
+      "meta_title": "string",
+      "meta_description": "string",
+      "created_at": "string",
+      "created_by": "number",
+      "updated_at": "string",
+      "updated_by": "number",
+      "published_at": "string",
+      "published_by": "number",
+      "author": "number",
+      "url": "string"
+    }
+}
+</code></pre><h2>HTTP status code <a href="http://httpstatus.es/404" target="_blank">404</a></h2><h3>Body</h3><p><strong>Type: application/json</strong></p><p><strong>Schema</strong>:</p><pre><code>{
+  "$schema": "http://json-schema.org/draft-03/schema#",
+  "type": "array",
+  "properties": {
+    "message": "string",
+    "stack": "string",
+    "code": {
+      "type": "number",
+      "enum": [404]
+    }
+  }
+}
+</code></pre></div></div></div></div></div></div></div><div class="panel panel-white"><div class="panel-heading"><h4 class="panel-title"><a class="collapsed" data-toggle="collapse" href="#panel__api_ghost_posts_tag__tag_"><span class="parent">/api/ghost/posts</span>/tag/{tag}</a> <span class="methods"><a href="#_api_ghost_posts_tag__tag__get"><span class="badge badge_get">get</span></a></span></h4></div><div id="panel__api_ghost_posts_tag__tag_" class="panel-collapse collapse"><div class="panel-body"><div class="list-group"><div onclick="window.location.href = '#_api_ghost_posts_tag__tag__get'" class="list-group-item"><span class="badge badge_get">get</span><div class="method_description"><p>Get a list of posts matching a tag</p></div><div class="clearfix"></div></div></div></div></div><div class="modal fade" tabindex="0" id="_api_ghost_posts_tag__tag__get"><div class="modal-dialog"><div class="modal-content"><div class="modal-header"><button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button><h4 class="modal-title" id="myModalLabel"><span class="badge badge_get">get</span> <span class="parent">/api/ghost/posts</span>/tag/{tag}</h4></div><div class="modal-body"><div class="alert alert-info"><p>Get a list of posts matching a tag</p></div><ul class="nav nav-tabs"><li class="active"><a href="#_api_ghost_posts_tag__tag__get_request" data-toggle="tab">Request</a></li><li><a href="#_api_ghost_posts_tag__tag__get_response" data-toggle="tab">Response</a></li></ul><div class="tab-content"><div class="tab-pane active" id="_api_ghost_posts_tag__tag__get_request"><h3>URI Parameters</h3><ul><li><strong>tag</strong>: <em>required (string )</em></li></ul></div><div class="tab-pane" id="_api_ghost_posts_tag__tag__get_response"><h2>HTTP status code <a href="http://httpstatus.es/200" target="_blank">200</a></h2><h3>Body</h3><p><strong>Type: application/json</strong></p><p><strong>Schema</strong>:</p><pre><code>{
+    "$schema": "http://json-schema.org/draft-03/schema#",
+    "type": "object",
+    "description": "Ghost Post",
+    "properties": {
+      "status": {
+        "type": "string",
+        "enum": ["published"]
+      },
+      "id": "number",
+      "uuid": "string",
+      "title": "string",
+      "slug": "string",
+      "markdown": "string",
+      "html": "string",
+      "image": "string",
+      "featured": "boolean",
+      "page": "boolean",
+      "language": "string",
+      "meta_title": "string",
+      "meta_description": "string",
+      "created_at": "string",
+      "created_by": "number",
+      "updated_at": "string",
+      "updated_by": "number",
+      "published_at": "string",
+      "published_by": "number",
+      "author": "number",
+      "url": "string"
+    }
+}
+</code></pre></div></div></div></div></div></div></div></div></div></div><div class="panel panel-default"><div class="panel-heading"><h3 id="_cms" class="panel-title">/cms</h3></div><div class="panel-body"><div class="top-resource-description"><p>access to ghost&#39;s web API</p></div><div class="panel-group"></div></div></div></div><div class="col-md-3"><div id="sidebar" class="hidden-print affix" role="complementary"><ul class="nav nav-pills nav-stacked"><li><a href="#_api_ghost">/api/ghost</a></li><li><a href="#_cms">/cms</a></li></ul></div></div></div></div></body></html>

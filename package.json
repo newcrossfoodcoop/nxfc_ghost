@@ -1,0 +1,44 @@
+{
+  "name": "nxfc_ghost",
+  "description": "NXFC Ghost service",
+  "version": "0.0.0",
+  "private": false,
+  "author": "https://github.com/newcrossfoodcoop/nxfc_ghost/graphs/contributors",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/newcrossfoodcoop/nxfc_ghost.git"
+  },
+  "scripts": {
+    "start": "gulp",
+    "test": "gulp test",
+    "postinstall": "bower install --config.interactive=false"
+  },
+  "dependencies": {
+    "body-parser": "~1.9.0",
+    "chalk": "~0.5.1",
+    "express": "~4.10.0",
+    "ghost": "https://github.com/newcrossfoodcoop/Ghost/raw/nxfc/.dist/release/Ghost-0.6.2.tar.gz",
+    "glob": "~5.0.0",
+    "helmet": "~0.4.0",
+    "lodash": "^4.15.0",
+    "method-override": "~2.3.0",
+    "morgan": "~1.4.1",
+    "request": "^2.55.0"
+  },
+  "devDependencies": {
+    "abao": "0.4.0",
+    "get-gulp-args": "0.0.1",
+    "gulp": "3.9.1",
+    "gulp-concat": "~2.4.1",
+    "gulp-csslint": "~0.1.5",
+    "gulp-cssmin": "~0.1.6",
+    "gulp-jshint": "~1.8.6",
+    "gulp-load-plugins": "~0.7.0",
+    "gulp-mocha": "~1.1.1",
+    "gulp-nodemon": "2.1.0",
+    "gulp-raml2html": "^0.2.0",
+    "run-sequence": "~1.0.1",
+    "should": "11.1.0",
+    "supertest": "~0.14.0"
+  }
+}
