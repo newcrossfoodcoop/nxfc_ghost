@@ -24,6 +24,9 @@ RUN gulp test
 # Run build
 RUN gulp build
 
+# Volumes
+VOLUME /home/app/api/content/data
+
 # 3020 3021 for api dev/test 
 # 2368 for ghost
 # 5858 for debug
