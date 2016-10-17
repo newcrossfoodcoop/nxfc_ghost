@@ -13,12 +13,21 @@
       "slug": { "type": "string" },
       "markdown": { "type": "string" },
       "html": { "type": "string" },
-      "image": { "type": "string" },
+      "image": { "anyOf": [
+        { "type": "string" },
+        { "type": "null" }
+      ]},
       "featured": { "type": "boolean" },
       "page": { "type": "boolean" },
       "language": { "type": "string" },
-      "meta_title": { "type": "string" },
-      "meta_description": { "type": "string" },
+      "meta_title": { "anyOf": [
+        { "type": "string" },
+        { "type": "null" }
+      ]},
+      "meta_description": { "anyOf": [
+        { "type": "string" },
+        { "type": "null" }
+      ]},
       "created_at": { "type": "string" },
       "created_by": { "type": "number" },
       "updated_at": { "type": "string" },

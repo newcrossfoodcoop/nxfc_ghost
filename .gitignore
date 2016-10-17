@@ -38,3 +38,6 @@ jspm_packages
 
 # Drone secrets
 secrets.yml
+
+build/
+api/content/data
