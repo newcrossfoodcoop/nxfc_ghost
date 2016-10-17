@@ -26,7 +26,8 @@ module.exports = {
             api: 'api/tests/**/*.js',
             model: 'models/tests/**/*.js'
         },
-        models: null
+        models: null,
+        raml: 'api/raml/*.raml'
     },
     api: {
         host: 'localhost',
